@@ -8,6 +8,7 @@ Build a system to let developers view their repository activity in simplified ma
 
 ## Project Structure
 
+```project-structure
 client/
 docs/
     architecture.excalidraw
@@ -15,3 +16,4 @@ docs/
     system-design.md
 server/
 README.md
+```
