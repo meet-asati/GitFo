@@ -1,28 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react"
+import NavBar from "./components/Navbar";
 
 function App() {
 
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    axios.get('/api/msg').then((data) => {
-      setMessage(data.data.message)
-    });
-  }, [])
-
   return (
-    <div className="text-center">
-      <div>GitFo</div>
-      <div>
-        {
-          message == '' ?
-            <p>Loading...</p>
-            : <p>{message}</p>
-        }
+    <div className="flex flex-col justify-center bg-[#181818] h-screen">
+      <div className="h-screen mx-48 my-10">
+        <NavBar />
       </div>
-
     </div>
   )
 }
