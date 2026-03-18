@@ -1,5 +1,3 @@
-import chart from '../assets/green_charts.png'
-
 function HeroSection() {
     return (
         <div className="flex flex-col gap-10 items-center bg-black rounded-2xl h-120 p-10 text-center">
