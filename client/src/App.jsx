@@ -1,19 +1,10 @@
-import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react"
-import NavBar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import Footer from "./components/Footer";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
 
   return (
-    <div className="flex flex-col justify-center bg-[#181818] h-screen">
-      <div className="flex flex-col gap-20 h-screen mx-48 my-10">
-        <NavBar />
-        <HeroSection />
-        <Footer />
-      </div>
+    <div className="flex flex-col justify-center bg-[#181818] h-full">
+      <LandingPage />
     </div>
   )
 }
