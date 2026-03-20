@@ -4,10 +4,12 @@ import SignUp from "../components/SignUp"
 
 function SignUpPage() {
     return (
-        <div className="flex flex-col gap-20 h-full mx-48 my-10">
-            <NavBar />
-            <SignUp />
-            <Footer />
+        <div className="flex flex-col justify-center bg-[#181818] min-h-screen">
+            <div className="flex flex-col gap-20 h-full mx-48 my-10">
+                <NavBar />
+                <SignUp />
+                <Footer />
+            </div>
         </div>
     )
 }
