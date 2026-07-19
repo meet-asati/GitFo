@@ -55,7 +55,9 @@ Users
 -----
 id
 email
+username
 github_id
+avatar_url
 created_at
 
 Repositories

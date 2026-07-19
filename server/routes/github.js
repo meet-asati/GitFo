@@ -2,6 +2,7 @@ import { Router } from "express";
 import axios from "axios";
 import "dotenv/config";
 import qs from "qs";
+import { createUser } from "../services/user.js";
 
 const router = Router();
 
@@ -22,15 +23,24 @@ router.get("/callback", async (req, res) => {
 
   const access_token = qs.parse(result)["data"].split("=")[1].split("&")[0];
 
-  // TODO: Save to db
-  const userResponse = await axios.get("https://github.com", {
-    headers: { Authorization: `token ${access_token}` },
+  const userResponse = await axios.get("https://api.github.com/user", {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
   });
-  const githubUser = userResponse.data;
+  const { login, email, id, avatar_url } = userResponse.data;
+  const userData = {
+    username: login,
+    email,
+    github_id: id,
+    avatar_url,
+  };
+  console.log(userData);
+  const newUser = await createUser(userData);
 
-  const redirect_uri = `${process.env.FRONTEND_ORIGIN}/home?token=${access_token}`;
-  
-  return res.status(200).redirect(redirect_uri);
+  const redirectUri = `${process.env.FRONTEND_ORIGIN}/home?token=${access_token}`;
+
+  return res.status(200).redirect(redirectUri);
 });
 
 export { router };
